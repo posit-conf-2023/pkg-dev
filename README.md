@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Fundamentals of Package Development
 ================
 
 ### posit::conf 2023
