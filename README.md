@@ -61,7 +61,7 @@ development practices we will be featuring.
 
 Please ensure you have installed a recent version of R (>= 4.0) and are able to
 install packages. The workshop will be taught using the RStudio IDE. You are
-welcome to use whichever IDE you are comfortable with, but you might find it
+welcome to use whichever IDE you are comfortable with, but you will find it
 easier to follow along if you are using RStudio as well.
 
 ### Git and GitHub
