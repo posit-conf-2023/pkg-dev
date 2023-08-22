@@ -80,39 +80,27 @@ workshop on Day 1, and join us for this workshop on Day 2.
 
 ### Day 1
 
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
-
-### Day 2
-
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| Time          | Activity                                                      |
+| :------------ | :------------------------------------------------------------ |
+| 09:00 - 10:30 | What is a package? Package Structure and State                |
+| 10:30 - 11:00 | *Coffee break*                                                |
+| 11:00 - 12:30 | Package Creation and Metadata; Documentation                  |
+| 12:30 - 13:30 | *Lunch break*                                                 |
+| 13:30 - 15:00 | Testing; Dependencies                                         |
+| 15:00 - 15:30 | *Coffee break*                                                |
+| 15:30 - 17:00 | Continuous Integration; Package Website; Package Distribution |
 
 ## Instructor
 
-Andy Teucher is an R Package Developer Educator at Posit. His background is in
-conservation biology, with an MSc in Ecology from the University of Calgary. He
-has spent much of his career as a data scientist in government, where he made it
-his mission to promote and teach open, reproducible data science practices. He
-has written R packages for internal use in his teams as well as for a broader
-audience, with several hosted on CRAN. Andy especially enjoys developing
-packages to make it easier to work with spatial data in R. He has a passion for
+Andy Teucher is a data scientist and package developer with a passion for
 teaching others to learn how to use data science tools to make their work more
-efficient and reproducible. Andy is a certified Software Carpentry and Data
+efficient and reproducible. His background is in conservation biology, with an
+MSc in Ecology from the University of Calgary. He has spent much of his career
+as a data scientist in government, where he made it his mission to promote and
+teach open, reproducible data science practices. He has written R packages for
+internal use in his teams as well as for a broader audience, with several hosted
+on CRAN. Andy especially enjoys developing packages to make it easier to work
+with spatial data in R. Andy is a certified Software Carpentry and Data
 Carpentry instructor, and has led many workshops teaching programming skills to
 scientists and data professionals.
 
