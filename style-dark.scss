@@ -1,0 +1,12 @@
+/*-- scss:defaults --*/
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap';
+
+// use Atkinson Hyperlegible font if available
+$font-family-sans-serif: "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: "Fira Code";
+
+/*-- scss:rules --*/
+.cell-output > pre > code {
+  background-color: rgba(67,67,67,.65);
+}

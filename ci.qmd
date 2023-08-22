@@ -1,0 +1,36 @@
+---
+title: Automated checking with GitHub Actions 🦾
+---
+
+```r
+use_github_action()
+```
+
+```
+Which action do you want to add? (0 to exit)
+(See <https://github.com/r-lib/actions/tree/v2/examples> for other options) 
+
+1: check-standard: Run `R CMD check` on Linux, macOS, and Windows
+2: test-coverage: Compute test coverage and report to https://about.codecov.io
+3: pr-commands: Add /document and /style commands for pull requests
+
+Selection: 1
+✔ Setting active project to '/Users/andy/dev/libminer'
+✔ Creating '.github/'
+✔ Adding '^\\.github$' to '.Rbuildignore'
+✔ Adding '*.html' to '.github/.gitignore'
+✔ Creating '.github/workflows/'
+✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/R-CMD-check.yaml'
+• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
+✔ Adding R-CMD-check badge to 'README.Rmd'
+• Re-knit 'README.Rmd' with `devtools::build_readme()`
+```
+
+```r
+build_readme()
+```
+
+```
+ℹ Installing libminer in temporary library
+ℹ Building /Users/andy/dev/libminer/README.Rmd
+```

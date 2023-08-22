@@ -1,0 +1,42 @@
+project:
+  type: website
+
+website:
+  title: "📦 Fundamentals of R Package Development"
+  navbar:
+    background: secondary
+    right:
+      - icon: github
+        href: https://github.com/posit-conf-2023/pkg-dev
+        aria-label: GitHub
+  repo-url: https://github.com/posit-conf-2023/pkg-dev
+  repo-actions: [edit, issue]
+  sidebar:
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - intro.qmd
+      - setup.qmd
+      - understanding-pkgs.qmd
+      - create-pkg-and-metadata.qmd
+      - documentation.qmd
+      - testing.qmd
+      - dependencies.qmd
+      - ci.qmd
+      - website.qmd
+      - share.qmd
+
+format:
+  html:
+    theme:
+      light:
+        - flatly
+        - style-light.scss
+      dark:
+        - darkly
+        - style-dark.scss
+    toc: true
+
+
+

@@ -1,0 +1,9 @@
+---
+title: "Documentation 📓"
+---
+
+<!-- 
+keep simple
+out of scope: @describeIn, @inheritParams etc
+https://github.com/rstudio-conf-2022/pkg-dev-masterclass/blob/main/materials/3-function-docs.pdf
+ -->

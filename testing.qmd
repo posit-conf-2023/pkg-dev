@@ -1,0 +1,27 @@
+---
+title: Tests 🧪
+---
+
+Test files -> tests -> expectations
+
+file: `use_test()`
+
+test: `test_that()`
+
+expectation: `expect_*()`
+
+Testing:
+ - output
+ - errors/warnings
+ - side effects
+
+snapshots
+
+helpers
+ - local things
+
+mocking
+
+skipping
+
+execution speed - small tests

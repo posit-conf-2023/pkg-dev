@@ -76,6 +76,11 @@ If you are looking to get started with Git and GitHub,
 we recommend you register for the “What they forgot to teach you about R”
 workshop on Day 1, and join us for this workshop on Day 2.
 
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). 
+By contributing to this project, you agree to abide by its terms.
+
 ## Schedule
 
 ### Day 1

@@ -1,0 +1,74 @@
+---
+title: Managing dependencies 🐕
+---
+
+```{r}
+#| eval: false
+lib_summary <- function(sizes = FALSE) {
+  pkgs <- utils::installed.packages()
+  pkg_tbl <- table(pkgs[, "LibPath"])
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
+  names(pkg_df) <- c("Library", "n_packages")
+
+  if (sizes) {
+    library("fs")
+    pkg_df$lib_size <- vapply(
+      pkg_df$Library,
+      function(x) {
+        sum(file_size(dir_ls(x, recurse = TRUE)))
+      },
+      FUN.VALUE = numeric(1)
+    )
+  }
+  pkg_df
+}
+```
+
+```{r}
+#| eval: false
+use_package("fs")
+```
+
+```{r}
+#| eval: false
+lib_summary <- function(sizes = FALSE) {
+  pkgs <- utils::installed.packages()
+  pkg_tbl <- table(pkgs[, "LibPath"])
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
+  names(pkg_df) <- c("Library", "n_packages")
+
+  if (sizes) {
+    pkg_df$lib_size <- vapply(
+      pkg_df$Library,
+      function(x) {
+        sum(fs::file_size(fs::dir_ls(x, recurse = TRUE)))
+      },
+      FUN.VALUE = numeric(1)
+    )
+  }
+  pkg_df
+}
+```
+
+```{r}
+#| eval: false
+use_import_from("purrr", "map_dbl")
+```
+
+```{r}
+#| eval: false
+lib_summary <- function(sizes = FALSE) {
+  pkgs <- utils::installed.packages()
+  pkg_tbl <- table(pkgs[, "LibPath"])
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
+  names(pkg_df) <- c("Library", "n_packages")
+  
+  if (sizes) {
+    pkg_df$lib_size <- map_dbl(
+      pkg_df$Library,
+      ~ sum(fs::file_size(fs::dir_ls(.x, recurse = TRUE)))
+    )
+  }
+  pkg_df
+}
+```

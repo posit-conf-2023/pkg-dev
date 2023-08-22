@@ -1,0 +1,24 @@
+---
+title: Create a package website 🕸
+---
+
+```r
+use_pkgdown_github_pages()
+```
+
+```
+✔ Adding '^_pkgdown\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'
+✔ Adding 'docs' to '.gitignore'
+✔ Writing '_pkgdown.yml'
+• Modify '_pkgdown.yml'
+✔ Initializing empty, orphan 'gh-pages' branch in GitHub repo 'ateucher/libminer'
+✔ GitHub Pages is publishing from:
+• URL: 'http://ateucher.github.io/libminer/'
+• Branch: 'gh-pages'
+• Path: '/'
+✔ Saving 'r-lib/actions/examples/pkgdown.yaml@v2' to '.github/workflows/pkgdown.yaml'
+• Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
+✔ Recording 'http://ateucher.github.io/libminer/' as site's url in '_pkgdown.yml'
+✔ Adding 'http://ateucher.github.io/libminer/' to URL
+✔ Setting 'http://ateucher.github.io/libminer/' as homepage of GitHub repo 'ateucher/libminer'
+```

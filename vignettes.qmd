@@ -1,0 +1,18 @@
+---
+title: "Vignettes 📚"
+---
+
+```r
+use_vignette("lib-sitrep", "Library Situation Report")
+```
+
+```
+✔ Adding 'knitr' to Suggests field in DESCRIPTION
+✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION
+✔ Adding 'knitr' to VignetteBuilder
+✔ Adding 'inst/doc' to '.gitignore'
+✔ Creating 'vignettes/'
+✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'
+✔ Writing 'vignettes/lib-sitrep.Rmd'
+• Modify 'vignettes/lib-sitrep.Rmd'
+```
