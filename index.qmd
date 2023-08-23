@@ -1,5 +1,6 @@
 ---
-title: "Fundamentals of R package development: 1-day course"
+title: "Fundamentals of R Package Development"
+subtitle: "1-Day Workshop"
 ---
 
 🗓️ September 17 and 18, 2023\

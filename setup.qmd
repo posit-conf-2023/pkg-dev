@@ -192,3 +192,8 @@ Not all of it is relevant now, but it is essential to check whether your name an
 Personal access token for 'https://github.com': '<discovered>'
 ```
 :::
+
+### References
+
+::: {#refs}
+:::

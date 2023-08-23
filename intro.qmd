@@ -21,7 +21,7 @@ Instructors and participants are expected to abide by our [Code of Conduct](CODE
 ### Schedule
 
 | Time          | Activity                                                      |
-|:----------------|:------------------------------------------------------|
+|:--------------|:--------------------------------------------------------------|
 | 09:00 - 10:30 | What is a package? Package Structure and State                |
 | 10:30 - 11:00 | *Coffee break*                                                |
 | 11:00 - 12:30 | Package Creation and Metadata; Documentation                  |
