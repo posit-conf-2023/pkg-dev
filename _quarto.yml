@@ -26,6 +26,8 @@ website:
       - ci.qmd
       - website.qmd
       - share.qmd
+      
+bibliography: references.bib
 
 format:
   html:

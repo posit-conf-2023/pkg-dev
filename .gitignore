@@ -6,3 +6,5 @@
 
 /.quarto/
 _site
+slides.scss
+whole-game.qmd

@@ -2,7 +2,8 @@
 title: "System Setup 🤖"
 ---
 
-You will require the following software installed and configured for the workshop. Please have this set up and ready to go **before** we start.
+You will require the following software installed and configured for the workshop.
+Please have this set up and ready to go **before** we start.
 
 ## Computing requirements
 
@@ -10,7 +11,7 @@ You will need:
 
 -   A laptop computer with administrative privileges
 -   [R and RStudio](#install-r-and-rstudio)
--   [R package development toolchain](#install-r-package-development-tools): Rtools(windows) or XCode (mac) or r-base-dev
+-   [R package development toolchain](#install-r-package-development-tools): Rtools (windows) or XCode (mac) or r-base-dev (linux)
 -   [Several R packages](#packages)
 -   [Git]
 -   [GitHub account](#github)
@@ -20,8 +21,8 @@ You will need:
 
 You will need:
 
--   R version >= 4.2.0
--   RStudio  >= 2023.03.1
+-   R version \>= 4.2.0
+-   RStudio \>= 2023.03.1
 
 ### Install R
 
@@ -29,26 +30,29 @@ Download and install R for your operating system from <https://cloud.r-project.o
 
 ### Install R Studio
 
-Download and install RStudio Desktop from <https://posit.co/download/rstudio-desktop/>. This page should automatically offer you the version suitable for your operating system, but you can scroll down to find versions for all operating systems.
+Download and install RStudio Desktop from <https://posit.co/download/rstudio-desktop/>.
+This page should automatically offer you the version suitable for your operating system, but you can scroll down to find versions for all operating systems.
 
 ## Install R package development tools {#install-r-package-development-tools}
 
 #### For Windows
 
-Download and run the latest Rtools installer, `Rtools.exe`, from <https://cran.r-project.org/bin/windows/Rtools/>. 
+Download and run the latest Rtools installer, `Rtools.exe`, from <https://cran.r-project.org/bin/windows/Rtools/>.
 
-- Keep the default settings for the installation location and components to install
-- check the box to add rtools to the system PATH.
+-   Keep the default settings for the installation location and components to install
+-   check the box to add rtools to the system PATH.
 
 #### For Mac
 
-Install XCode. The easiest way is to open a Terminal window (Applications > Utilities > Terminal.app; or use the Terminal pane in RStudio) and type the following:
+Install XCode.
+The easiest way is to open a Terminal window (Applications \> Utilities \> Terminal.app; or use the Terminal pane in RStudio) and type the following:
 
-```
+```         
 xcode-select --install
 ```
 
-You will be prompted to confirm the install, and possibly enter your computer password. Do so to complete the installation.
+You will be prompted to confirm the install, and possibly enter your computer password.
+Do so to complete the installation.
 
 Alternatively you can:
 
@@ -57,7 +61,8 @@ Alternatively you can:
 
 #### For Linux
 
-If you installed `r-base-dev` when installing R, you should have all you need to build packages from source. If not, go back to <https://cloud.r-project.org/> and follow the instructions for your distribution (Ubuntu and Debian are likely the most common, and install it with `sudo apt-get install r-base-dev`).
+If you installed `r-base-dev` when installing R, you should have all you need to build packages from source.
+If not, go back to <https://cloud.r-project.org/> and follow the instructions for your distribution (Ubuntu and Debian are likely the most common, and install it with `sudo apt-get install r-base-dev`).
 
 ## Install packages {#packages}
 
@@ -77,7 +82,8 @@ devtools::has_devel()
 
 ## Git
 
-We will be demonstrating the use of Git and GitHub for tracking changes during package development, and sharing and collaborating on our package. It is not strictly necessary for the workshop, but you will benefit greatly by using it.
+We will be demonstrating the use of Git and GitHub for tracking changes during package development, and sharing and collaborating on our package.
+It is not strictly necessary for the workshop, but you will benefit greatly by using it.
 
 ### Windows
 
@@ -87,22 +93,23 @@ If `which git` didn't find Git installed:
 
 -   Download and install from <https://git-scm.com/downloads>
 -   Keep all the default settings. If asked about "Adjusting your PATH environment", make sure to select "Git from the command line and also from 3rd-party software".
--   Open RStudio. In the menus go to Tools > Global Options > Git/SVN.
+-   Open RStudio. In the menus go to Tools \> Global Options \> Git/SVN.
 -   Check RStudio has found git under "Git executable:"
     -   You may need to click Browse and find the git executable.
     -   It may be in `C:/Users/[username]/AppData/Local/Programs/Git/`
 
 ### Mac
 
-Check if Git is installed by running `which git` in the Terminal. You should see something like `/usr/bin/git`, `/usr/local/bin/`, or `/opt/homebrew/bin/git`.
+Check if Git is installed by running `which git` in the Terminal.
+You should see something like `/usr/bin/git`, `/usr/local/bin/`, or `/opt/homebrew/bin/git`.
 
 If you are asked to install the Xcode command line tools, say yes.
 
 If `which git` didn't find Git installed, and if you weren't prompted to install it, run the following in the **Terminal**: `xcode-select --install`
 
-
 ::: aside
-If you do lots of scientific computing and especially if you use command-line programs in the Terminal, we recommend using Homebrew. See [brew.sh](https://brew.sh/) for installation instructions.
+If you do lots of scientific computing and especially if you use command-line programs in the Terminal, we recommend using Homebrew.
+See [brew.sh](https://brew.sh/) for installation instructions.
 To install Git using Homebrew, run the following in the Terminal: `brew install git`
 :::
 
@@ -124,7 +131,9 @@ usethis::use_git_config(
   )
 ```
 
-Communicating with GitHub requires authentication with your GitHub account. This is achieved by creating and securely storing a Personal Access Token (PAT). The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the **`usethis`** [@usethis] package has details on using PATs, but for now the following should suffice.
+Communicating with GitHub requires authentication with your GitHub account.
+This is achieved by creating and securely storing a Personal Access Token (PAT).
+The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the **`usethis`** [@usethis] package has details on using PATs, but for now the following should suffice.
 
 Create a PAT with:
 
@@ -138,8 +147,10 @@ usethis::create_github_token()
 -   Run `gitcreds::gitcreds_set()` in R and paste in your PAT when prompted.
 -   After you close the PAT webpage, you won't be able to see your PAT again! You can store it somewhere secure, such as in a password manager.
 
-### Caveat about storing PATs on Linux: 
-macOS and Windows both have built-in credential managers that will securely store your PAT, however the same does not exist in Linux. [Happy Git with R has a section on options for storing your PAT on Linux](https://happygitwithr.com/https-pat#pat-doesnt-persist-on-linux).
+### Caveat about storing PATs on Linux:
+
+macOS and Windows both have built-in credential managers that will securely store your PAT, however the same does not exist in Linux.
+[Happy Git with R has a section on options for storing your PAT on Linux](https://happygitwithr.com/https-pat#pat-doesnt-persist-on-linux).
 
 ::: aside
 You may need to install the **`gitcreds`** package [@gitcreds].
@@ -153,7 +164,7 @@ usethis::git_sitrep()
 ```
 
 ::: cell-output
-```
+```         
 ── Git global (user) 
 • Name: 'Andy Teucher'
 • Email: 'andy.teucher@gmail.com'
@@ -173,10 +184,11 @@ usethis::git_sitrep()
 ```
 :::
 
-The output shows information about the link between RStudio and GitHub. Not all of it is relevant now, but it is essential to check whether your name and email are correct and the PAT is showing as "discovered":
+The output shows information about the link between RStudio and GitHub.
+Not all of it is relevant now, but it is essential to check whether your name and email are correct and the PAT is showing as "discovered":
 
 ::: cell-output
-```
+```         
 Personal access token for 'https://github.com': '<discovered>'
 ```
 :::
