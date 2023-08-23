@@ -11,7 +11,7 @@ You will need:
 
 -   A laptop computer with administrative privileges
 -   [R and RStudio](#install-r-and-rstudio)
--   [R package development toolchain](#install-r-package-development-tools): Rtools (windows) or XCode (mac) or r-base-dev (linux)
+-   [R package development toolchain](#install-r-package-development-tools)
 -   [Several R packages](#packages)
 -   [Git]
 -   [GitHub account](#github)
@@ -37,14 +37,14 @@ This page should automatically offer you the version suitable for your operating
 
 #### For Windows
 
-Download and run the latest Rtools installer, `Rtools.exe`, from <https://cran.r-project.org/bin/windows/Rtools/>.
+Download and run the latest **Rtools** installer, `Rtools.exe`, from <https://cran.r-project.org/bin/windows/Rtools/>.
 
 -   Keep the default settings for the installation location and components to install
 -   check the box to add rtools to the system PATH.
 
 #### For Mac
 
-Install XCode.
+Install **XCode**.
 The easiest way is to open a Terminal window (Applications \> Utilities \> Terminal.app; or use the Terminal pane in RStudio) and type the following:
 
 ```         
@@ -70,7 +70,9 @@ In R, install the necessary packages by running:
 
 ```{r}
 #| eval: false
-install.packages(c("devtools", "pkgdown", "roxygen2", "testthat", "knitr"))
+install.packages(
+  c("devtools", "roxygen2", "testthat", "rmarkdown", "pkgdown", "purrr")
+)
 ```
 
 You can verify your system is set up for package development by running:
@@ -87,7 +89,7 @@ It is not strictly necessary for the workshop, but you will benefit greatly by u
 
 ### Windows
 
-Check if Git is installed by running `which git` in the **Terminal**
+Check if Git is installed by running `which git` in the **Terminal** pane in RStudio.
 
 If `which git` didn't find Git installed:
 
