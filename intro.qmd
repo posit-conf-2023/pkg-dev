@@ -16,7 +16,9 @@ We basically follow the format of the "Whole Game" chapter, stepping through the
 
 ### Code of Conduct
 
-Instructors and participants are expected to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
+Please note that all participants at posit::conf(2023) and workshops must abide by the [Code of Conduct](https://posit.co/code-of-conduct/).
+Everyone who comes to learn and enjoy the experience should feel welcome at posit::conf.
+Posit is committed to providing a professional, friendly and safe environment for all participants at its events, regardless of gender, sexual orientation, disability, race, ethnicity, religion, national origin or other protected class.
 
 ### Schedule
 
