@@ -17,7 +17,7 @@ In R, the fundamental unit of reusable and shareable code is a package, containi
 This workshop will teach you the fundamentals of package development in R, using tools and principles developed and used extensively by the tidyverse team - specifically the 'devtools' family of packages including usethis, testthat, and roxygen2.
 These packages and workflows help you focus on the contents of your package rather than the minutiae of package structure.
 
-You will learn the structure of a package, how to organize your code, and workflows to help you develop your package iteratively.
+You will learn the structure of a package, how to organize your code, and workflows to help you develop your package iteratively, from the ground up.
 You will learn how to write good documentation so that users can learn how to use your package, and how to use automated testing to ensure it is functioning the way you expect it to, now and into the future.
 You will also learn how to check your package for common problems, and how to distribute your package for others to use.
 
