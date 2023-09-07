@@ -56,6 +56,41 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by [Mozilla’s code of conduct enforcement ladder][https://github.com/mozilla/inclusion].\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   },
   {
+    "objectID": "create-pkg-and-metadata.html",
+    "href": "create-pkg-and-metadata.html",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "",
+    "text": "library(devtools)\ncreate_package(\"~/Desktop/libminer\")\n\n\n\n\nThis should have been done in your setup, but it’s not a bad idea to double check.\n\ngit_sitrep()\n\nIf the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:\n\nuse_git_config(\n  user.name = \"Your Name\",\n  user.email = \"Your Email\"\n)\n\n\n\n\n\nuse_git()\n\n\n\n\nWe can load devtools automatically via our .Rprofile file so that it is always loaded during development\n\nuse_devtools()\n\nPaste the contents of your clipboard in .Rprofile, and restart R."
+  },
+  {
+    "objectID": "create-pkg-and-metadata.html#lay-the-foundations",
+    "href": "create-pkg-and-metadata.html#lay-the-foundations",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "",
+    "text": "library(devtools)\ncreate_package(\"~/Desktop/libminer\")\n\n\n\n\nThis should have been done in your setup, but it’s not a bad idea to double check.\n\ngit_sitrep()\n\nIf the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:\n\nuse_git_config(\n  user.name = \"Your Name\",\n  user.email = \"Your Email\"\n)\n\n\n\n\n\nuse_git()\n\n\n\n\nWe can load devtools automatically via our .Rprofile file so that it is always loaded during development\n\nuse_devtools()\n\nPaste the contents of your clipboard in .Rprofile, and restart R."
+  },
+  {
+    "objectID": "create-pkg-and-metadata.html#write-your-first-function",
+    "href": "create-pkg-and-metadata.html#write-your-first-function",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "Write your first function",
+    "text": "Write your first function\n\nOpen a new file in R/ to hold your code\n\nuse_r(\"lib-summary\")\n\n\n\nWrite your function definition in this file\n\nlib_summary &lt;- function() {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n  pkg_df\n}\n\n\n\nLoad your package with load_all()\n\nload_all()\n\nAnd test out our new function:\n\nlib_summary()\n\n                          Library n_packages\n1 /home/runner/work/_temp/Library         95\n2      /opt/R/4.3.1/lib/R/library         29\n3 /opt/R/4.3.1/lib/R/site-library          1"
+  },
+  {
+    "objectID": "create-pkg-and-metadata.html#check-your-package-and-then-fix-the-problems",
+    "href": "create-pkg-and-metadata.html#check-your-package-and-then-fix-the-problems",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "Check your package (and then fix the problems)",
+    "text": "Check your package (and then fix the problems)\n\ncheck()\n\n\nSet a license\n\nuse_mit_license()\n\n\n\nDESCRIPTION file:\nPackage: libminer\nTitle: Explore Your R Libraries\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Jane\", \"Doe\",\n           email = \"jane.doe@something.com\", \n           role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"XXXX-XXXX-XXXX-XXXX\"))\nDescription: Provides functions for learning about your R libraries, and the \n    packages you have installed.\n\n\nCheck again\n\ncheck()\n\n\n\nSet a default DESCRIPTION\nThis avoids having to do this manually every time\n\nedit_r_profile()\n\nAnd add this to your .Rprofile file\n\n# Set usethis options:\noptions(\n  usethis.description = list(\n    \"Authors@R\" = utils::person(\n      \"Andy\", \"Teucher\",\n      email = \"andy.teucher@gmail.com\",\n      role = c(\"aut\", \"cre\"),\n      comment = c(ORCID = \"0000-1111-2222-3333\")\n    )\n  )\n)\n\noptions(\n  warnPartialMatchArgs = TRUE,\n  warnPartialMatchDollar = TRUE,\n  warnPartialMatchAttr = TRUE\n)"
+  },
+  {
+    "objectID": "create-pkg-and-metadata.html#use-github",
+    "href": "create-pkg-and-metadata.html#use-github",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "Use GitHub",
+    "text": "Use GitHub\n\ngit_sitrep()\n\nuse_github()"
+  },
+  {
     "objectID": "vignettes.html",
     "href": "vignettes.html",
     "title": "Vignettes 📚",
