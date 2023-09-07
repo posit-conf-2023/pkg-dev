@@ -1,9 +1,61 @@
 ---
 title: "Documentation 📓"
+execute: 
+  eval: false
 ---
 
-<!-- 
-keep simple
-out of scope: @describeIn, @inheritParams etc
-https://github.com/rstudio-conf-2022/pkg-dev-masterclass/blob/main/materials/3-function-docs.pdf
- -->
+### Add a roxygen block just above your function definition
+
+``` r
+#' R Library Summary
+#'
+#' Provides a brief summary of the package libraries on your machine
+#'
+#' @return A data.frame containing the count of packages in each of the user's
+#'   libraries
+#' @export
+#'
+#' @examples
+#' lib_summary()
+lib_summary <- function() {
+  ...
+}
+```
+
+## Build function documentation (`man/lib_summary.Rd`) from roxygen
+
+```{r}
+document()
+```
+
+You can preview it with `?function_name`
+
+```{r}
+load_all()
+
+?lib_summary
+```
+
+### Check package to ensure documentation conforms to standards
+
+```{r}
+check()
+```
+
+## Create package-level documentation
+
+```{r}
+use_package_doc()
+
+document()
+```
+
+Preview and check again
+
+```{r}
+load_all()
+
+?libminer
+
+check()
+```
