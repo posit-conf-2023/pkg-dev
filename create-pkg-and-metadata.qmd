@@ -1,3 +1,152 @@
 ---
 title: Package Creation and Metadata 🧰
+execute: 
+  eval: false
 ---
+
+## Lay the foundations
+
+### Load devtools and create your package infrastructure
+
+```{r}
+library(devtools)
+create_package("~/Desktop/libminer")
+```
+
+### Confirm git is configured correctly (and update if necessary)
+
+This should have been done in your [setup](setup.qmd), but it's not a bad idea to double check.
+
+```{r}
+git_sitrep()
+```
+
+If the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:
+
+```{r}
+use_git_config(
+  user.name = "Your Name",
+  user.email = "Your Email"
+)
+```
+
+### Initialize this package as a git repo
+
+```{r}
+use_git()
+```
+
+### Use devtools
+
+We can load devtools automatically via our `.Rprofile` file so that it is always loaded during development
+
+```{r}
+use_devtools()
+```
+
+Paste the contents of your clipboard in `.Rprofile`, and restart R.
+
+## Write your first function
+
+### Open a new file in `R/` to hold your code
+
+```{r}
+use_r("lib-summary")
+```
+
+### Write your function definition in this file
+
+```{r}
+#| eval: true
+lib_summary <- function() {
+  pkgs <- utils::installed.packages()
+  pkg_tbl <- table(pkgs[, "LibPath"])
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
+  names(pkg_df) <- c("Library", "n_packages")
+  pkg_df
+}
+```
+
+### Load your package with `load_all()`
+
+```{r}
+load_all()
+```
+
+And test out our new function:
+
+```{r}
+#| eval: true
+lib_summary()
+```
+
+## Check your package (and then fix the problems)
+
+```{r}
+check()
+```
+
+### Set a license
+
+```{r}
+use_mit_license()
+```
+
+### DESCRIPTION file:
+
+```         
+Package: libminer
+Title: Explore Your R Libraries
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jane", "Doe",
+           email = "jane.doe@something.com", 
+           role = c("aut", "cre"),
+           comment = c(ORCID = "XXXX-XXXX-XXXX-XXXX"))
+Description: Provides functions for learning about your R libraries, and the 
+    packages you have installed.
+```
+
+### Check again
+
+```{r}
+check()
+```
+
+### Set a default DESCRIPTION
+
+This avoids having to do this manually every time
+
+```{r}
+edit_r_profile()
+```
+
+And add this to your `.Rprofile` file
+
+```{r}
+# Set usethis options:
+options(
+  usethis.description = list(
+    "Authors@R" = utils::person(
+      "Andy", "Teucher",
+      email = "andy.teucher@gmail.com",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-1111-2222-3333")
+    )
+  )
+)
+
+options(
+  warnPartialMatchArgs = TRUE,
+  warnPartialMatchDollar = TRUE,
+  warnPartialMatchAttr = TRUE
+)
+```
+
+## Use GitHub
+
+```{r}
+git_sitrep()
+
+use_github()
+```
