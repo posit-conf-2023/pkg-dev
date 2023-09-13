@@ -6,6 +6,8 @@ execute:
 
 ### Add a roxygen block just above your function definition
 
+Insert template with `Ctrl + Alt + Shift + R` or `Cmd + Option + Shift + R`
+
 ``` r
 #' R Library Summary
 #'
@@ -22,7 +24,7 @@ lib_summary <- function() {
 }
 ```
 
-## Build function documentation (`man/lib_summary.Rd`) from roxygen
+### Build function documentation (`man/lib_summary.Rd`) from roxygen
 
 ```{r}
 document()
@@ -50,6 +52,8 @@ use_package_doc()
 document()
 ```
 
+See rendered documentation at `man/libminer2-package.Rd`
+
 Preview and check again
 
 ```{r}
@@ -57,5 +61,75 @@ load_all()
 
 ?libminer
 
+check()
+```
+
+### Install your package
+
+```{r}
+install()
+library(libminer)
+
+lib_summary() # note one more package than before - that's yours!
+```
+
+## README
+
+```{r}
+use_readme_rmd()
+```
+
+````         
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# libminer
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of libminer is to provide an overview of your R library setup. It is a toy
+package created as a part of a workshop and not meant for serious use.
+
+## Installation
+
+You can install the development version of libminer from [GitHub](https://github.com/) with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("ateucher/libminer")
+```
+
+## Example usage
+
+To get a count of installed packages in each of your library locations, 
+optionally with the total sizes, use the `lib_summary()` function:
+
+```{{r example}}
+library(libminer)
+lib_summary()
+# specify `sizes = TRUE` to calculate the total size on disk of your packages
+lib_summary(sizes = TRUE)
+```
+````
+
+```{r}
+build_readme()
+```
+
+```{r}
 check()
 ```

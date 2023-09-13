@@ -2,26 +2,39 @@
 title: Tests 🧪
 ---
 
-Test files -> tests -> expectations
+### Initialize test infrastructure
 
-file: `use_test()`
+```{r}
+use_testthat()
+```
 
-test: `test_that()`
+### Create test file to match our R/ file
 
-expectation: `expect_*()`
+```{r}
+use_test("lib-summary")
+```
 
-Testing:
- - output
- - errors/warnings
- - side effects
+### Write tests
 
-snapshots
+```{r}
+test_that("lib_summary returns expected results", {
+  res <- lib_summary()
+  expect_s3_class(res, "data.frame")
+  expect_equal(ncol(res), 2)
+  expect_equal(names(res), c("Library", "n_packages"))
+  expect_type(res$Library, "character")
+  expect_type(res$n_packages, "integer")
+})
 
-helpers
- - local things
+test_that("lib_summary fails appropriately", {
+  expect_error(lib_summary("foo"), "unused argument")
+})
+```
 
-mocking
+### Test and check
 
-skipping
+```{r}
+test()
 
-execution speed - small tests
+check()
+```

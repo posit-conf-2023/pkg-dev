@@ -4,6 +4,22 @@ execute:
   eval: false
 ---
 
+## Get Ready
+
+Check required packages
+
+```{r}
+all(c("devtools", "roxygen2", "testthat", "knitr", "pkgdown") %in% installed.packages())
+```
+
+Check development toolchain and git
+
+```{r}
+library(devtools)
+
+has_devel()
+```
+
 ## Lay the foundations
 
 ### Load devtools and create your package infrastructure
@@ -80,7 +96,7 @@ And test out our new function:
 lib_summary()
 ```
 
-## Check your package (and then fix the problems)
+### Check your package
 
 ```{r}
 check()
@@ -113,6 +129,12 @@ Description: Provides functions for learning about your R libraries, and the
 check()
 ```
 
+### Use GitHub
+
+```{r}
+use_github()
+```
+
 ### Set a default DESCRIPTION
 
 This avoids having to do this manually every time
@@ -128,8 +150,8 @@ And add this to your `.Rprofile` file
 options(
   usethis.description = list(
     "Authors@R" = utils::person(
-      "Andy", "Teucher",
-      email = "andy.teucher@gmail.com",
+      "Jame", "Doe",
+      email = "jane.doe@example.com",
       role = c("aut", "cre"),
       comment = c(ORCID = "0000-1111-2222-3333")
     )
@@ -141,12 +163,4 @@ options(
   warnPartialMatchDollar = TRUE,
   warnPartialMatchAttr = TRUE
 )
-```
-
-## Use GitHub
-
-```{r}
-git_sitrep()
-
-use_github()
 ```

@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "📦 Fundamentals of R Package Development Workshop"
+  title: "📦 Fundamentals of Package Development"
   navbar:
     background: secondary
     right:

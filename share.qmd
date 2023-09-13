@@ -1,3 +1,9 @@
 ---
 title: Hosting and sharing 📤
 ---
+
+## To prepare for CRAN release:
+
+```{r}
+use_release_issue()
+```

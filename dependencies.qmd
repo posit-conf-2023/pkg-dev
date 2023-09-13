@@ -1,9 +1,12 @@
 ---
 title: Managing dependencies 🐕
+execute: 
+  eval: false
 ---
 
+This is how we might use another package in a script:
+
 ```{r}
-#| eval: false
 lib_summary <- function(sizes = FALSE) {
   pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])
@@ -24,13 +27,15 @@ lib_summary <- function(sizes = FALSE) {
 }
 ```
 
+But this is how we do it in a package:
+
 ```{r}
-#| eval: false
 use_package("fs")
 ```
 
+### Use `fs` in our function:
+
 ```{r}
-#| eval: false
 lib_summary <- function(sizes = FALSE) {
   pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])
@@ -51,12 +56,61 @@ lib_summary <- function(sizes = FALSE) {
 ```
 
 ```{r}
-#| eval: false
-use_import_from("purrr", "map_dbl")
+test() # failure for unused argument
+```
+
+### Update tests
+
+```{r}
+test_that("lib_summary fails appropriately", {
+  expect_error(lib_summary(sizes = "foo"), "not interpretable as logical")
+})
+
+test_that("sizes argument works", {
+  res <- lib_summary(sizes = TRUE)
+  expect_equal(names(res), c("Library", "n_packages", "lib_size"))
+  expect_type(res$lib_size, "double")
+})
 ```
 
 ```{r}
-#| eval: false
+check() # will warn about undocumented parameter
+```
+
+### Update documentation
+
+Ctrl+Alt+Shift+R will insert the spot for the sizes param
+
+```{r}
+#' Provides a brief summary of the package libraries on your machine
+#'
+#' @param sizes Should the sizes of the libraries be calculated?
+#'   Logical; default `FALSE`.
+#'
+#' @return A data.frame containing the count of packages in each of the user's
+#'   libraries. A `lib_size` column is included if `sizes = TRUE`.
+#' @export
+#'
+#' @examples
+#' lib_summary()
+#' lib_summary(sizes = TRUE)
+```
+
+```{r}
+document()
+
+check()
+```
+
+### Alternative: use importFrom
+
+```{r}
+use_import_from("purrr", "map_dbl")
+```
+
+Use `map_dbl()` directly without namespace qualifier:
+
+```{r}
 lib_summary <- function(sizes = FALSE) {
   pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])

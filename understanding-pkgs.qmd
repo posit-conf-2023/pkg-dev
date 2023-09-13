@@ -2,3 +2,8 @@
 title: 'Packages in a nutshell 🌰'
 ---
 
+### Explore your package libraries
+
+```{r}
+.libPaths()
+```
