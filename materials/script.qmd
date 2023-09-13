@@ -13,7 +13,7 @@ execute:
 .libPaths()
 ```
 
-*back to slides*
+***back to slides***
 
 ## Get Ready
 
@@ -27,7 +27,7 @@ library(devtools)
 has_devel()
 ```
 
-*back to slides*
+***back to slides***
 
 ## Create a package
 
@@ -38,7 +38,7 @@ create_package("~/Desktop/libminer")
 
 *Explore package structure in RStudio with learners*
 
-*back to slides*
+***back to slides***
 
 ```{r}
 # gert::git_config()
@@ -60,7 +60,7 @@ Git global: Name, email GitHub user: PAT discovered, User, email(s)
 use_git()
 ```
 
-*back to slides*
+***back to slides***
 
 ```{r}
 devtools::use_devtools()
@@ -68,7 +68,7 @@ devtools::use_devtools()
 
 Restart R - check that devtools is loaded
 
-*back to slides*
+***back to slides***
 
 ```{r}
 use_r("lib-summary")
@@ -84,23 +84,23 @@ lib_summary <- function() {
 }
 ```
 
-*back to slides*
+***back to slides***
 
 ```{r}
 load_all()
 ```
 
-*back to slides*
+***back to slides***
 
 **Commit**
 
-*back to slides*
+***back to slides***
 
 ```{r}
 check()
 ```
 
-*back to slides*
+***back to slides***
 
 Open DESCRIPTION file
 
@@ -110,7 +110,7 @@ use_mit_license()
 
 **Commit**
 
-*back to slides*
+***back to slides***
 
 DESCRIPTION file:
 
@@ -125,7 +125,7 @@ Description: Provides functions for learning about your R libraries, and the
     packages you have installed.
 ```
 
-*back to slides*
+***back to slides***
 
 ```{r}
 check()
@@ -133,13 +133,13 @@ check()
 
 **Commit**
 
-*back to slides*
+***back to slides***
 
 ```{r}
 use_github()
 ```
 
-*back to slides*
+***back to slides***
 
 ```{r}
 edit_r_profile()
@@ -167,7 +167,7 @@ options(
 )
 ```
 
-*back to slides*
+***back to slides***
 
 ## Documentation
 
@@ -208,7 +208,7 @@ check()
 
 **commit**
 
-*back to slides*
+***back to slides***
 
 ### Package-level documentation
 
@@ -230,7 +230,7 @@ load_all()
 check()
 ```
 
-*back to slides*
+***back to slides***
 
 ```{r}
 install()
@@ -280,7 +280,7 @@ check()
 
 **commit**
 
-*back to slides*
+***back to slides***
 
 ## Dependencies
 
@@ -370,7 +370,7 @@ lib_summary(sizes = TRUE)
 
 **commit**
 
-*back to slides*
+***back to slides***
 
 ```{r}
 use_import_from("purrr", "map_dbl")
