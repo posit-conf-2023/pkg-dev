@@ -1,7 +1,5 @@
 ---
 title: Package Creation and Metadata 🧰
-execute: 
-  eval: false
 ---
 
 ## Get Ready

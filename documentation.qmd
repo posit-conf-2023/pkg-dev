@@ -1,7 +1,5 @@
 ---
 title: "Documentation 📓"
-execute: 
-  eval: false
 ---
 
 ### Add a roxygen block just above your function definition

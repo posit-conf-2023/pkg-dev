@@ -29,6 +29,9 @@ website:
       
 bibliography: references.bib
 
+execute: 
+  eval: false
+
 format:
   html:
     theme:
