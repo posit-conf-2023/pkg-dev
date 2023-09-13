@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>📦 Fundamentals of R Package Development Workshop - Package Creation and Metadata 🧰</title>
+<title>📦 Fundamentals of Package Development - Package Creation and Metadata 🧰</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">📦 Fundamentals of R Package Development Workshop</span>
+    <span class="navbar-title">📦 Fundamentals of Package Development</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -229,7 +229,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lay-the-foundations" id="toc-lay-the-foundations" class="nav-link active" data-scroll-target="#lay-the-foundations">Lay the foundations</a>
+  <li><a href="#get-ready" id="toc-get-ready" class="nav-link active" data-scroll-target="#get-ready">Get Ready</a></li>
+  <li><a href="#lay-the-foundations" id="toc-lay-the-foundations" class="nav-link" data-scroll-target="#lay-the-foundations">Lay the foundations</a>
   <ul class="collapse">
   <li><a href="#load-devtools-and-create-your-package-infrastructure" id="toc-load-devtools-and-create-your-package-infrastructure" class="nav-link" data-scroll-target="#load-devtools-and-create-your-package-infrastructure">Load devtools and create your package infrastructure</a></li>
   <li><a href="#confirm-git-is-configured-correctly-and-update-if-necessary" id="toc-confirm-git-is-configured-correctly-and-update-if-necessary" class="nav-link" data-scroll-target="#confirm-git-is-configured-correctly-and-update-if-necessary">Confirm git is configured correctly (and update if necessary)</a></li>
@@ -241,15 +242,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#open-a-new-file-in-r-to-hold-your-code" id="toc-open-a-new-file-in-r-to-hold-your-code" class="nav-link" data-scroll-target="#open-a-new-file-in-r-to-hold-your-code">Open a new file in <code>R/</code> to hold your code</a></li>
   <li><a href="#write-your-function-definition-in-this-file" id="toc-write-your-function-definition-in-this-file" class="nav-link" data-scroll-target="#write-your-function-definition-in-this-file">Write your function definition in this file</a></li>
   <li><a href="#load-your-package-with-load_all" id="toc-load-your-package-with-load_all" class="nav-link" data-scroll-target="#load-your-package-with-load_all">Load your package with <code>load_all()</code></a></li>
-  </ul></li>
-  <li><a href="#check-your-package-and-then-fix-the-problems" id="toc-check-your-package-and-then-fix-the-problems" class="nav-link" data-scroll-target="#check-your-package-and-then-fix-the-problems">Check your package (and then fix the problems)</a>
-  <ul class="collapse">
+  <li><a href="#check-your-package" id="toc-check-your-package" class="nav-link" data-scroll-target="#check-your-package">Check your package</a></li>
   <li><a href="#set-a-license" id="toc-set-a-license" class="nav-link" data-scroll-target="#set-a-license">Set a license</a></li>
   <li><a href="#description-file" id="toc-description-file" class="nav-link" data-scroll-target="#description-file">DESCRIPTION file:</a></li>
   <li><a href="#check-again" id="toc-check-again" class="nav-link" data-scroll-target="#check-again">Check again</a></li>
+  <li><a href="#use-github" id="toc-use-github" class="nav-link" data-scroll-target="#use-github">Use GitHub</a></li>
   <li><a href="#set-a-default-description" id="toc-set-a-default-description" class="nav-link" data-scroll-target="#set-a-default-description">Set a default DESCRIPTION</a></li>
   </ul></li>
-  <li><a href="#use-github" id="toc-use-github" class="nav-link" data-scroll-target="#use-github">Use GitHub</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/posit-conf-2023/pkg-dev/edit/main/create-pkg-and-metadata.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/posit-conf-2023/pkg-dev/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -273,40 +272,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="get-ready" class="level2">
+<h2 class="anchored" data-anchor-id="get-ready">Get Ready</h2>
+<p>Check required packages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"roxygen2"</span>, <span class="st">"testthat"</span>, <span class="st">"knitr"</span>, <span class="st">"pkgdown"</span>) <span class="sc">%in%</span> <span class="fu">installed.packages</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check development toolchain and git</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">has_devel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="lay-the-foundations" class="level2">
 <h2 class="anchored" data-anchor-id="lay-the-foundations">Lay the foundations</h2>
 <section id="load-devtools-and-create-your-package-infrastructure" class="level3">
 <h3 class="anchored" data-anchor-id="load-devtools-and-create-your-package-infrastructure">Load devtools and create your package infrastructure</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">create_package</span>(<span class="st">"~/Desktop/libminer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">create_package</span>(<span class="st">"~/Desktop/libminer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="confirm-git-is-configured-correctly-and-update-if-necessary" class="level3">
 <h3 class="anchored" data-anchor-id="confirm-git-is-configured-correctly-and-update-if-necessary">Confirm git is configured correctly (and update if necessary)</h3>
 <p>This should have been done in your <a href="./setup.html">setup</a>, but it’s not a bad idea to double check.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Your Name"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"Your Email"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Your Name"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"Your Email"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="initialize-this-package-as-a-git-repo" class="level3">
 <h3 class="anchored" data-anchor-id="initialize-this-package-as-a-git-repo">Initialize this package as a git repo</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="use-devtools" class="level3">
 <h3 class="anchored" data-anchor-id="use-devtools">Use devtools</h3>
 <p>We can load devtools automatically via our <code>.Rprofile</code> file so that it is always loaded during development</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_devtools</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_devtools</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Paste the contents of your clipboard in <code>.Rprofile</code>, and restart R.</p>
 </section>
@@ -316,29 +328,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="open-a-new-file-in-r-to-hold-your-code" class="level3">
 <h3 class="anchored" data-anchor-id="open-a-new-file-in-r-to-hold-your-code">Open a new file in <code>R/</code> to hold your code</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_r</span>(<span class="st">"lib-summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_r</span>(<span class="st">"lib-summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="write-your-function-definition-in-this-file" class="level3">
 <h3 class="anchored" data-anchor-id="write-your-function-definition-in-this-file">Write your function definition in this file</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lib_summary <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  pkgs <span class="ot">&lt;-</span> utils<span class="sc">::</span><span class="fu">installed.packages</span>()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  pkg_tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(pkgs[, <span class="st">"LibPath"</span>])</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  pkg_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pkg_tbl, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pkg_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Library"</span>, <span class="st">"n_packages"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  pkg_df</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lib_summary <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  pkgs <span class="ot">&lt;-</span> utils<span class="sc">::</span><span class="fu">installed.packages</span>()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  pkg_tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(pkgs[, <span class="st">"LibPath"</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  pkg_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pkg_tbl, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pkg_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Library"</span>, <span class="st">"n_packages"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  pkg_df</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-your-package-with-load_all" class="level3">
 <h3 class="anchored" data-anchor-id="load-your-package-with-load_all">Load your package with <code>load_all()</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And test out our new function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                          Library n_packages
 1 /home/runner/work/_temp/Library         95
@@ -347,16 +359,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="check-your-package-and-then-fix-the-problems" class="level2">
-<h2 class="anchored" data-anchor-id="check-your-package-and-then-fix-the-problems">Check your package (and then fix the problems)</h2>
+<section id="check-your-package" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-package">Check your package</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="set-a-license" class="level3">
 <h3 class="anchored" data-anchor-id="set-a-license">Set a license</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_mit_license</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="description-file" class="level3">
@@ -375,46 +387,44 @@ Description: Provides functions for learning about your R libraries, and the
 <section id="check-again" class="level3">
 <h3 class="anchored" data-anchor-id="check-again">Check again</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-github" class="level3">
+<h3 class="anchored" data-anchor-id="use-github">Use GitHub</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="set-a-default-description" class="level3">
 <h3 class="anchored" data-anchor-id="set-a-default-description">Set a default DESCRIPTION</h3>
 <p>This avoids having to do this manually every time</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And add this to your <code>.Rprofile</code> file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set usethis options:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Authors@R"</span> <span class="ot">=</span> utils<span class="sc">::</span><span class="fu">person</span>(</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Andy"</span>, <span class="st">"Teucher"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">email =</span> <span class="st">"andy.teucher@gmail.com"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>),</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">comment =</span> <span class="fu">c</span>(<span class="at">ORCID =</span> <span class="st">"0000-1111-2222-3333"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchArgs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchDollar =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchAttr =</span> <span class="cn">TRUE</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="use-github" class="level2">
-<h2 class="anchored" data-anchor-id="use-github">Use GitHub</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>()</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set usethis options:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">usethis.description =</span> <span class="fu">list</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Authors@R"</span> <span class="ot">=</span> utils<span class="sc">::</span><span class="fu">person</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Jame"</span>, <span class="st">"Doe"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">email =</span> <span class="st">"jane.doe@example.com"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">comment =</span> <span class="fu">c</span>(<span class="at">ORCID =</span> <span class="st">"0000-1111-2222-3333"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchArgs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchDollar =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">warnPartialMatchAttr =</span> <span class="cn">TRUE</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

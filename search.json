@@ -56,39 +56,46 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by [Mozilla’s code of conduct enforcement ladder][https://github.com/mozilla/inclusion].\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   },
   {
+    "objectID": "share.html",
+    "href": "share.html",
+    "title": "Hosting and sharing 📤",
+    "section": "",
+    "text": "use_release_issue()"
+  },
+  {
+    "objectID": "share.html#to-prepare-for-cran-release",
+    "href": "share.html#to-prepare-for-cran-release",
+    "title": "Hosting and sharing 📤",
+    "section": "",
+    "text": "use_release_issue()"
+  },
+  {
     "objectID": "create-pkg-and-metadata.html",
     "href": "create-pkg-and-metadata.html",
     "title": "Package Creation and Metadata 🧰",
     "section": "",
-    "text": "library(devtools)\ncreate_package(\"~/Desktop/libminer\")\n\n\n\n\nThis should have been done in your setup, but it’s not a bad idea to double check.\n\ngit_sitrep()\n\nIf the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:\n\nuse_git_config(\n  user.name = \"Your Name\",\n  user.email = \"Your Email\"\n)\n\n\n\n\n\nuse_git()\n\n\n\n\nWe can load devtools automatically via our .Rprofile file so that it is always loaded during development\n\nuse_devtools()\n\nPaste the contents of your clipboard in .Rprofile, and restart R."
+    "text": "Check required packages\n\nall(c(\"devtools\", \"roxygen2\", \"testthat\", \"knitr\", \"pkgdown\") %in% installed.packages())\n\nCheck development toolchain and git\n\nlibrary(devtools)\n\nhas_devel()"
+  },
+  {
+    "objectID": "create-pkg-and-metadata.html#get-ready",
+    "href": "create-pkg-and-metadata.html#get-ready",
+    "title": "Package Creation and Metadata 🧰",
+    "section": "",
+    "text": "Check required packages\n\nall(c(\"devtools\", \"roxygen2\", \"testthat\", \"knitr\", \"pkgdown\") %in% installed.packages())\n\nCheck development toolchain and git\n\nlibrary(devtools)\n\nhas_devel()"
   },
   {
     "objectID": "create-pkg-and-metadata.html#lay-the-foundations",
     "href": "create-pkg-and-metadata.html#lay-the-foundations",
     "title": "Package Creation and Metadata 🧰",
-    "section": "",
-    "text": "library(devtools)\ncreate_package(\"~/Desktop/libminer\")\n\n\n\n\nThis should have been done in your setup, but it’s not a bad idea to double check.\n\ngit_sitrep()\n\nIf the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:\n\nuse_git_config(\n  user.name = \"Your Name\",\n  user.email = \"Your Email\"\n)\n\n\n\n\n\nuse_git()\n\n\n\n\nWe can load devtools automatically via our .Rprofile file so that it is always loaded during development\n\nuse_devtools()\n\nPaste the contents of your clipboard in .Rprofile, and restart R."
+    "section": "Lay the foundations",
+    "text": "Lay the foundations\n\nLoad devtools and create your package infrastructure\n\nlibrary(devtools)\ncreate_package(\"~/Desktop/libminer\")\n\n\n\nConfirm git is configured correctly (and update if necessary)\nThis should have been done in your setup, but it’s not a bad idea to double check.\n\ngit_sitrep()\n\nIf the above command returns unsatisfactory information (most importantly, do you have a username and email configured), run the following command to configure git:\n\nuse_git_config(\n  user.name = \"Your Name\",\n  user.email = \"Your Email\"\n)\n\n\n\nInitialize this package as a git repo\n\nuse_git()\n\n\n\nUse devtools\nWe can load devtools automatically via our .Rprofile file so that it is always loaded during development\n\nuse_devtools()\n\nPaste the contents of your clipboard in .Rprofile, and restart R."
   },
   {
     "objectID": "create-pkg-and-metadata.html#write-your-first-function",
     "href": "create-pkg-and-metadata.html#write-your-first-function",
     "title": "Package Creation and Metadata 🧰",
     "section": "Write your first function",
-    "text": "Write your first function\n\nOpen a new file in R/ to hold your code\n\nuse_r(\"lib-summary\")\n\n\n\nWrite your function definition in this file\n\nlib_summary &lt;- function() {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n  pkg_df\n}\n\n\n\nLoad your package with load_all()\n\nload_all()\n\nAnd test out our new function:\n\nlib_summary()\n\n                          Library n_packages\n1 /home/runner/work/_temp/Library         95\n2      /opt/R/4.3.1/lib/R/library         29\n3 /opt/R/4.3.1/lib/R/site-library          1"
-  },
-  {
-    "objectID": "create-pkg-and-metadata.html#check-your-package-and-then-fix-the-problems",
-    "href": "create-pkg-and-metadata.html#check-your-package-and-then-fix-the-problems",
-    "title": "Package Creation and Metadata 🧰",
-    "section": "Check your package (and then fix the problems)",
-    "text": "Check your package (and then fix the problems)\n\ncheck()\n\n\nSet a license\n\nuse_mit_license()\n\n\n\nDESCRIPTION file:\nPackage: libminer\nTitle: Explore Your R Libraries\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Jane\", \"Doe\",\n           email = \"jane.doe@something.com\", \n           role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"XXXX-XXXX-XXXX-XXXX\"))\nDescription: Provides functions for learning about your R libraries, and the \n    packages you have installed.\n\n\nCheck again\n\ncheck()\n\n\n\nSet a default DESCRIPTION\nThis avoids having to do this manually every time\n\nedit_r_profile()\n\nAnd add this to your .Rprofile file\n\n# Set usethis options:\noptions(\n  usethis.description = list(\n    \"Authors@R\" = utils::person(\n      \"Andy\", \"Teucher\",\n      email = \"andy.teucher@gmail.com\",\n      role = c(\"aut\", \"cre\"),\n      comment = c(ORCID = \"0000-1111-2222-3333\")\n    )\n  )\n)\n\noptions(\n  warnPartialMatchArgs = TRUE,\n  warnPartialMatchDollar = TRUE,\n  warnPartialMatchAttr = TRUE\n)"
-  },
-  {
-    "objectID": "create-pkg-and-metadata.html#use-github",
-    "href": "create-pkg-and-metadata.html#use-github",
-    "title": "Package Creation and Metadata 🧰",
-    "section": "Use GitHub",
-    "text": "Use GitHub\n\ngit_sitrep()\n\nuse_github()"
+    "text": "Write your first function\n\nOpen a new file in R/ to hold your code\n\nuse_r(\"lib-summary\")\n\n\n\nWrite your function definition in this file\n\nlib_summary &lt;- function() {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n  pkg_df\n}\n\n\n\nLoad your package with load_all()\n\nload_all()\n\nAnd test out our new function:\n\nlib_summary()\n\n                          Library n_packages\n1 /home/runner/work/_temp/Library         95\n2      /opt/R/4.3.1/lib/R/library         29\n3 /opt/R/4.3.1/lib/R/site-library          1\n\n\n\n\nCheck your package\n\ncheck()\n\n\n\nSet a license\n\nuse_mit_license()\n\n\n\nDESCRIPTION file:\nPackage: libminer\nTitle: Explore Your R Libraries\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"Jane\", \"Doe\",\n           email = \"jane.doe@something.com\", \n           role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"XXXX-XXXX-XXXX-XXXX\"))\nDescription: Provides functions for learning about your R libraries, and the \n    packages you have installed.\n\n\nCheck again\n\ncheck()\n\n\n\nUse GitHub\n\nuse_github()\n\n\n\nSet a default DESCRIPTION\nThis avoids having to do this manually every time\n\nedit_r_profile()\n\nAnd add this to your .Rprofile file\n\n# Set usethis options:\noptions(\n  usethis.description = list(\n    \"Authors@R\" = utils::person(\n      \"Jame\", \"Doe\",\n      email = \"jane.doe@example.com\",\n      role = c(\"aut\", \"cre\"),\n      comment = c(ORCID = \"0000-1111-2222-3333\")\n    )\n  )\n)\n\noptions(\n  warnPartialMatchArgs = TRUE,\n  warnPartialMatchDollar = TRUE,\n  warnPartialMatchAttr = TRUE\n)"
   },
   {
     "objectID": "vignettes.html",
@@ -105,11 +112,18 @@
     "text": "use_github_action()\nWhich action do you want to add? (0 to exit)\n(See &lt;https://github.com/r-lib/actions/tree/v2/examples&gt; for other options) \n\n1: check-standard: Run `R CMD check` on Linux, macOS, and Windows\n2: test-coverage: Compute test coverage and report to https://about.codecov.io\n3: pr-commands: Add /document and /style commands for pull requests\n\nSelection: 1\n✔ Setting active project to '/Users/andy/dev/libminer'\n✔ Creating '.github/'\n✔ Adding '^\\\\.github$' to '.Rbuildignore'\n✔ Adding '*.html' to '.github/.gitignore'\n✔ Creating '.github/workflows/'\n✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/R-CMD-check.yaml'\n• Learn more at &lt;https://github.com/r-lib/actions/blob/v2/examples/README.md&gt;.\n✔ Adding R-CMD-check badge to 'README.Rmd'\n• Re-knit 'README.Rmd' with `devtools::build_readme()`\nbuild_readme()\nℹ Installing libminer in temporary library\nℹ Building /Users/andy/dev/libminer/README.Rmd"
   },
   {
+    "objectID": "understanding-pkgs.html",
+    "href": "understanding-pkgs.html",
+    "title": "Packages in a nutshell 🌰",
+    "section": "",
+    "text": "Explore your package libraries\n\n.libPaths()"
+  },
+  {
     "objectID": "dependencies.html",
     "href": "dependencies.html",
     "title": "Managing dependencies 🐕",
     "section": "",
-    "text": "lib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n\n  if (sizes) {\n    library(\"fs\")\n    pkg_df$lib_size &lt;- vapply(\n      pkg_df$Library,\n      function(x) {\n        sum(file_size(dir_ls(x, recurse = TRUE)))\n      },\n      FUN.VALUE = numeric(1)\n    )\n  }\n  pkg_df\n}\n\n\nuse_package(\"fs\")\n\n\nlib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n\n  if (sizes) {\n    pkg_df$lib_size &lt;- vapply(\n      pkg_df$Library,\n      function(x) {\n        sum(fs::file_size(fs::dir_ls(x, recurse = TRUE)))\n      },\n      FUN.VALUE = numeric(1)\n    )\n  }\n  pkg_df\n}\n\n\nuse_import_from(\"purrr\", \"map_dbl\")\n\n\nlib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n  \n  if (sizes) {\n    pkg_df$lib_size &lt;- map_dbl(\n      pkg_df$Library,\n      ~ sum(fs::file_size(fs::dir_ls(.x, recurse = TRUE)))\n    )\n  }\n  pkg_df\n}"
+    "text": "This is how we might use another package in a script:\n\nlib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n\n  if (sizes) {\n    library(\"fs\")\n    pkg_df$lib_size &lt;- vapply(\n      pkg_df$Library,\n      function(x) {\n        sum(file_size(dir_ls(x, recurse = TRUE)))\n      },\n      FUN.VALUE = numeric(1)\n    )\n  }\n  pkg_df\n}\n\nBut this is how we do it in a package:\n\nuse_package(\"fs\")\n\n\nUse fs in our function:\n\nlib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n\n  if (sizes) {\n    pkg_df$lib_size &lt;- vapply(\n      pkg_df$Library,\n      function(x) {\n        sum(fs::file_size(fs::dir_ls(x, recurse = TRUE)))\n      },\n      FUN.VALUE = numeric(1)\n    )\n  }\n  pkg_df\n}\n\n\ntest() # failure for unused argument\n\n\n\nUpdate tests\n\ntest_that(\"lib_summary fails appropriately\", {\n  expect_error(lib_summary(sizes = \"foo\"), \"not interpretable as logical\")\n})\n\ntest_that(\"sizes argument works\", {\n  res &lt;- lib_summary(sizes = TRUE)\n  expect_equal(names(res), c(\"Library\", \"n_packages\", \"lib_size\"))\n  expect_type(res$lib_size, \"double\")\n})\n\n\ncheck() # will warn about undocumented parameter\n\n\n\nUpdate documentation\nCtrl+Alt+Shift+R will insert the spot for the sizes param\n\n#' Provides a brief summary of the package libraries on your machine\n#'\n#' @param sizes Should the sizes of the libraries be calculated?\n#'   Logical; default `FALSE`.\n#'\n#' @return A data.frame containing the count of packages in each of the user's\n#'   libraries. A `lib_size` column is included if `sizes = TRUE`.\n#' @export\n#'\n#' @examples\n#' lib_summary()\n#' lib_summary(sizes = TRUE)\n\n\ndocument()\n\ncheck()\n\n\n\nAlternative: use importFrom\n\nuse_import_from(\"purrr\", \"map_dbl\")\n\nUse map_dbl() directly without namespace qualifier:\n\nlib_summary &lt;- function(sizes = FALSE) {\n  pkgs &lt;- utils::installed.packages()\n  pkg_tbl &lt;- table(pkgs[, \"LibPath\"])\n  pkg_df &lt;- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)\n  names(pkg_df) &lt;- c(\"Library\", \"n_packages\")\n  \n  if (sizes) {\n    pkg_df$lib_size &lt;- map_dbl(\n      pkg_df$Library,\n      ~ sum(fs::file_size(fs::dir_ls(.x, recurse = TRUE)))\n    )\n  }\n  pkg_df\n}"
   },
   {
     "objectID": "website.html",
@@ -123,7 +137,7 @@
     "href": "index.html",
     "title": "Fundamentals of R Package Development",
     "section": "",
-    "text": "🗓️ September 17 and 18, 2023\n⏱️ 09:00 - 17:00\n🏨 ROOM TBD\n✍️ pos.it/conf"
+    "text": "🗓️ September 17 and 18, 2023\n⏱️ 09:00 - 17:00\n🏨 Hyatt Regency, Room “Michigan 3”\n✍️ pos.it/conf"
   },
   {
     "objectID": "index.html#overview",
@@ -172,14 +186,14 @@
     "href": "intro.html#course-logistics",
     "title": "Introduction ✨",
     "section": "Course logistics",
-    "text": "Course logistics\n\nCode of Conduct\nPlease note that all participants at posit::conf(2023) and workshops must abide by the Code of Conduct. Everyone who comes to learn and enjoy the experience should feel welcome at posit::conf. Posit is committed to providing a professional, friendly and safe environment for all participants at its events, regardless of gender, sexual orientation, disability, race, ethnicity, religion, national origin or other protected class.\n\n\nSchedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nWhat is a package? Package Structure and State\n\n\n10:30 - 11:00\nCoffee break\n\n\n11:00 - 12:30\nPackage Creation and Metadata; Documentation\n\n\n12:30 - 13:30\nLunch break\n\n\n13:30 - 15:00\nTesting; Dependencies\n\n\n15:00 - 15:30\nCoffee break\n\n\n15:30 - 17:00\nContinuous Integration; Package Website; Package Distribution\n\n\n\n\n\nSticky notes\n\n\n\n\n\nWe will be using sticky notes to make sure everyone is getting what they need out of the course. Everyone will get two sticky notes of different colours (e.g., one red, one green) that we use as status flags. If someone has completed an exercise they put the green sticky note on their laptop; if they run into a problem and need help, put up the red one.\n\n\nTAs\nTBD\n\n\nNote-taking\nWe will be using a private Discord channel for note-taking during the course. You will be given access before the workshop.\n\n\nReferences\n\n\nWickham, Hadley, and Jennifer Bryan. 2023. R Packages. 2nd ed. O’Reilly Media, Inc."
+    "text": "Course logistics\n\nCode of Conduct\nPlease note that all participants at posit::conf(2023) and workshops must abide by the Code of Conduct. Everyone who comes to learn and enjoy the experience should feel welcome at posit::conf. Posit is committed to providing a professional, friendly and safe environment for all participants at its events, regardless of gender, sexual orientation, disability, race, ethnicity, religion, national origin or other protected class.\n\n\nSchedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nWhat is a package? Package Structure and State\n\n\n10:30 - 11:00\nCoffee break\n\n\n11:00 - 12:30\nPackage Creation and Metadata; Documentation\n\n\n12:30 - 13:30\nLunch break\n\n\n13:30 - 15:00\nTesting; Dependencies\n\n\n15:00 - 15:30\nCoffee break\n\n\n15:30 - 17:00\nContinuous Integration; Package Website; Package Distribution\n\n\n\n\n\nSticky notes\n\n\n\n\n\nWe will be using sticky notes to make sure everyone is getting what they need out of the course. Everyone will get two sticky notes of different colours (e.g., one red, one green) that we use as status flags. If someone has completed an exercise they put the green sticky note on their laptop; if they run into a problem and need help, put up the red one.\n\n\nTAs\nDay 1: Michele Peruzzi & Thomas Pedersen\nDay 2: Nic Crane and Simon Couch\n\n\nNote-taking\nWe will be using a private Discord channel for note-taking during the course. You will be given access before the workshop.\n\n\nReferences\n\n\nWickham, Hadley, and Jennifer Bryan. 2023. R Packages. 2nd ed. O’Reilly Media, Inc."
   },
   {
     "objectID": "testing.html",
     "href": "testing.html",
     "title": "Tests 🧪",
     "section": "",
-    "text": "Test files -&gt; tests -&gt; expectations\nfile: use_test()\ntest: test_that()\nexpectation: expect_*()\nTesting: - output - errors/warnings - side effects\nsnapshots\nhelpers - local things\nmocking\nskipping\nexecution speed - small tests"
+    "text": "Initialize test infrastructure\n\nuse_testthat()\n\n\n\nCreate test file to match our R/ file\n\nuse_test(\"lib-summary\")\n\n\n\nWrite tests\n\ntest_that(\"lib_summary returns expected results\", {\n  res &lt;- lib_summary()\n  expect_s3_class(res, \"data.frame\")\n  expect_equal(ncol(res), 2)\n  expect_equal(names(res), c(\"Library\", \"n_packages\"))\n  expect_type(res$Library, \"character\")\n  expect_type(res$n_packages, \"integer\")\n})\n\ntest_that(\"lib_summary fails appropriately\", {\n  expect_error(lib_summary(\"foo\"), \"unused argument\")\n})\n\n\n\nTest and check\n\ntest()\n\ncheck()"
   },
   {
     "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
@@ -193,21 +207,21 @@
     "href": "documentation.html",
     "title": "Documentation 📓",
     "section": "",
-    "text": "#' R Library Summary\n#'\n#' Provides a brief summary of the package libraries on your machine\n#'\n#' @return A data.frame containing the count of packages in each of the user's\n#'   libraries\n#' @export\n#'\n#' @examples\n#' lib_summary()\nlib_summary &lt;- function() {\n  ...\n}"
-  },
-  {
-    "objectID": "documentation.html#build-function-documentation-manlib_summary.rd-from-roxygen",
-    "href": "documentation.html#build-function-documentation-manlib_summary.rd-from-roxygen",
-    "title": "Documentation 📓",
-    "section": "Build function documentation (man/lib_summary.Rd) from roxygen",
-    "text": "Build function documentation (man/lib_summary.Rd) from roxygen\n\ndocument()\n\nYou can preview it with ?function_name\n\nload_all()\n\n?lib_summary\n\n\nCheck package to ensure documentation conforms to standards\n\ncheck()"
+    "text": "Insert template with Ctrl + Alt + Shift + R or Cmd + Option + Shift + R\n#' R Library Summary\n#'\n#' Provides a brief summary of the package libraries on your machine\n#'\n#' @return A data.frame containing the count of packages in each of the user's\n#'   libraries\n#' @export\n#'\n#' @examples\n#' lib_summary()\nlib_summary &lt;- function() {\n  ...\n}"
   },
   {
     "objectID": "documentation.html#create-package-level-documentation",
     "href": "documentation.html#create-package-level-documentation",
     "title": "Documentation 📓",
     "section": "Create package-level documentation",
-    "text": "Create package-level documentation\n\nuse_package_doc()\n\ndocument()\n\nPreview and check again\n\nload_all()\n\n?libminer\n\ncheck()"
+    "text": "Create package-level documentation\n\nuse_package_doc()\n\ndocument()\n\nSee rendered documentation at man/libminer2-package.Rd\nPreview and check again\n\nload_all()\n\n?libminer\n\ncheck()\n\n\nInstall your package\n\ninstall()\nlibrary(libminer)\n\nlib_summary() # note one more package than before - that's yours!"
+  },
+  {
+    "objectID": "documentation.html#readme",
+    "href": "documentation.html#readme",
+    "title": "Documentation 📓",
+    "section": "README",
+    "text": "README\n\nuse_readme_rmd()\n\n---\noutput: github_document\n---\n\n&lt;!-- README.md is generated from README.Rmd. Please edit that file --&gt;\n\n\n\n# libminer\n\n&lt;!-- badges: start --&gt;\n\n&lt;!-- badges: end --&gt;\n\nThe goal of libminer is to provide an overview of your R library setup. It is a toy\npackage created as a part of a workshop and not meant for serious use.\n\n## Installation\n\nYou can install the development version of libminer from [GitHub](https://github.com/) with:\n\n```r\n# install.packages(\"devtools\")\ndevtools::install_github(\"ateucher/libminer\")\n```\n\n## Example usage\n\nTo get a count of installed packages in each of your library locations, \noptionally with the total sizes, use the `lib_summary()` function:\n\n```{r example}\nlibrary(libminer)\nlib_summary()\n# specify `sizes = TRUE` to calculate the total size on disk of your packages\nlib_summary(sizes = TRUE)\n```\n\nbuild_readme()\n\n\ncheck()"
   },
   {
     "objectID": "setup.html",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>📦 Fundamentals of R Package Development Workshop - Documentation 📓</title>
+<title>📦 Fundamentals of Package Development - Documentation 📓</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">📦 Fundamentals of R Package Development Workshop</span>
+    <span class="navbar-title">📦 Fundamentals of Package Development</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -230,11 +230,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#add-a-roxygen-block-just-above-your-function-definition" id="toc-add-a-roxygen-block-just-above-your-function-definition" class="nav-link active" data-scroll-target="#add-a-roxygen-block-just-above-your-function-definition">Add a roxygen block just above your function definition</a></li>
-  <li><a href="#build-function-documentation-manlib_summary.rd-from-roxygen" id="toc-build-function-documentation-manlib_summary.rd-from-roxygen" class="nav-link" data-scroll-target="#build-function-documentation-manlib_summary.rd-from-roxygen">Build function documentation (<code>man/lib_summary.Rd</code>) from roxygen</a>
-  <ul class="collapse">
+  <li><a href="#build-function-documentation-manlib_summary.rd-from-roxygen" id="toc-build-function-documentation-manlib_summary.rd-from-roxygen" class="nav-link" data-scroll-target="#build-function-documentation-manlib_summary.rd-from-roxygen">Build function documentation (<code>man/lib_summary.Rd</code>) from roxygen</a></li>
   <li><a href="#check-package-to-ensure-documentation-conforms-to-standards" id="toc-check-package-to-ensure-documentation-conforms-to-standards" class="nav-link" data-scroll-target="#check-package-to-ensure-documentation-conforms-to-standards">Check package to ensure documentation conforms to standards</a></li>
+  <li><a href="#create-package-level-documentation" id="toc-create-package-level-documentation" class="nav-link" data-scroll-target="#create-package-level-documentation">Create package-level documentation</a>
+  <ul class="collapse">
+  <li><a href="#install-your-package" id="toc-install-your-package" class="nav-link" data-scroll-target="#install-your-package">Install your package</a></li>
   </ul></li>
-  <li><a href="#create-package-level-documentation" id="toc-create-package-level-documentation" class="nav-link" data-scroll-target="#create-package-level-documentation">Create package-level documentation</a></li>
+  <li><a href="#readme" id="toc-readme" class="nav-link" data-scroll-target="#readme">README</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/posit-conf-2023/pkg-dev/edit/main/documentation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/posit-conf-2023/pkg-dev/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -260,6 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="add-a-roxygen-block-just-above-your-function-definition" class="level3">
 <h3 class="anchored" data-anchor-id="add-a-roxygen-block-just-above-your-function-definition">Add a roxygen block just above your function definition</h3>
+<p>Insert template with <code>Ctrl + Alt + Shift + R</code> or <code>Cmd + Option + Shift + R</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' R Library Summary</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' Provides a brief summary of the package libraries on your machine</span></span>
@@ -274,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="build-function-documentation-manlib_summary.rd-from-roxygen" class="level2">
-<h2 class="anchored" data-anchor-id="build-function-documentation-manlib_summary.rd-from-roxygen">Build function documentation (<code>man/lib_summary.Rd</code>) from roxygen</h2>
+<section id="build-function-documentation-manlib_summary.rd-from-roxygen" class="level3">
+<h3 class="anchored" data-anchor-id="build-function-documentation-manlib_summary.rd-from-roxygen">Build function documentation (<code>man/lib_summary.Rd</code>) from roxygen</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">document</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -285,12 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>?lib_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="check-package-to-ensure-documentation-conforms-to-standards" class="level3">
 <h3 class="anchored" data-anchor-id="check-package-to-ensure-documentation-conforms-to-standards">Check package to ensure documentation conforms to standards</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 </section>
 <section id="create-package-level-documentation" class="level2">
 <h2 class="anchored" data-anchor-id="create-package-level-documentation">Create package-level documentation</h2>
@@ -299,6 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">document</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>See rendered documentation at <code>man/libminer2-package.Rd</code></p>
 <p>Preview and check again</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load_all</span>()</span>
@@ -306,6 +310,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>?libminer</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="install-your-package" class="level3">
+<h3 class="anchored" data-anchor-id="install-your-package">Install your package</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(libminer)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_summary</span>() <span class="co"># note one more package than before - that's yours!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="readme" class="level2">
+<h2 class="anchored" data-anchor-id="readme">README</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_readme_rmd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> github_document</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- README.md is generated from README.Rmd. Please edit that file --&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># libminer</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- badges: start --&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- badges: end --&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>The goal of libminer is to provide an overview of your R library setup. It is a toy</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>package created as a part of a workshop and not meant for serious use.</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>You can install the development version of libminer from <span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/)</span> with:</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ateucher/libminer"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example usage</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>To get a count of installed packages in each of your library locations, </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>optionally with the total sizes, use the <span class="in">`lib_summary()`</span> function:</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r example}</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(libminer)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_summary</span>()</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co"># specify `sizes = TRUE` to calculate the total size on disk of your packages</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">lib_summary</span>(<span class="at">sizes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_readme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
