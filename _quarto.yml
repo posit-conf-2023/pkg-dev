@@ -27,7 +27,7 @@ website:
       - website.qmd
       - share.qmd
       - href: materials/slides.pdf
-        text: Slides
+        text: Slides (PDF)
       
 bibliography: references.bib
 
