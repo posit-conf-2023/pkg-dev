@@ -139,23 +139,37 @@ check()
 use_github()
 ```
 
+Go to GitHub page, explore show clone of local
+
 ***back to slides***
 
 ```{r}
 edit_r_profile()
 ```
 
-*put this in the etherpad*
+*put this in the Discord*
 
 ```{r}
-# Set usethis options:
+# Set usethis options
+# 
+options(
+  usethis.description = list(
+    "Authors@R" = utils::person(
+      "Jane", "Doe",
+      email = "jane@example.com",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-1111-2222-3333")
+    )
+  )
+)
+
 options(
   usethis.description = list(
     "Authors@R" = utils::person(
       "Andy", "Teucher",
       email = "andy.teucher@gmail.com",
       role = c("aut", "cre"),
-      comment = c(ORCID = "0000-1111-2222-3333")
+      comment = c(ORCID = "0000-0002-7840-692X")
     )
   )
 )
@@ -174,8 +188,6 @@ options(
 `Ctrl + .`
 
 `Ctrl+Alt+Shift+R`
-
-**show command palette here**
 
 ``` r
 #' R Library Summary
@@ -205,6 +217,8 @@ load_all()
 ```{r}
 check()
 ```
+
+Look at NAMESPACE
 
 **commit**
 
