@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2023-09-13T21:29:37.751Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/share.html</loc>
-    <lastmod>2023-09-13T21:29:34.699Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/create-pkg-and-metadata.html</loc>
-    <lastmod>2023-09-13T21:29:32.227Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/vignettes.html</loc>
-    <lastmod>2023-09-13T21:29:29.851Z</lastmod>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/intro.html</loc>
+    <lastmod>2023-09-15T05:33:24.390Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/posit-conf-2023/pkg-dev/ci.html</loc>
-    <lastmod>2023-09-13T21:29:28.015Z</lastmod>
+    <lastmod>2023-09-15T05:32:29.658Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/understanding-pkgs.html</loc>
-    <lastmod>2023-09-13T21:29:27.083Z</lastmod>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/create-pkg-and-metadata.html</loc>
+    <lastmod>2023-09-15T05:32:26.566Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/posit-conf-2023/pkg-dev/dependencies.html</loc>
-    <lastmod>2023-09-13T21:29:25.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/website.html</loc>
-    <lastmod>2023-09-13T21:28:02.507Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/index.html</loc>
-    <lastmod>2023-09-13T21:29:25.983Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/intro.html</loc>
-    <lastmod>2023-09-13T21:29:27.507Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/testing.html</loc>
-    <lastmod>2023-09-13T21:29:29.375Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/posit-conf-2023/pkg-dev/LICENSE.html</loc>
-    <lastmod>2023-09-13T21:29:30.679Z</lastmod>
+    <lastmod>2023-09-15T05:32:23.950Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/posit-conf-2023/pkg-dev/documentation.html</loc>
-    <lastmod>2023-09-13T21:29:33.659Z</lastmod>
+    <lastmod>2023-09-15T05:32:21.474Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/vignettes.html</loc>
+    <lastmod>2023-09-15T05:32:19.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/LICENSE.html</loc>
+    <lastmod>2023-09-15T05:32:18.486Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/index.html</loc>
+    <lastmod>2023-09-15T05:32:14.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/testing.html</loc>
+    <lastmod>2023-09-15T05:32:17.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/website.html</loc>
+    <lastmod>2023-09-15T05:32:19.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/CODE_OF_CONDUCT.html</loc>
+    <lastmod>2023-09-15T05:32:20.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/share.html</loc>
+    <lastmod>2023-09-15T05:32:22.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/posit-conf-2023/pkg-dev/understanding-pkgs.html</loc>
+    <lastmod>2023-09-15T05:32:25.054Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/posit-conf-2023/pkg-dev/setup.html</loc>
-    <lastmod>2023-09-13T21:29:37.295Z</lastmod>
+    <lastmod>2023-09-15T05:32:29.146Z</lastmod>
   </url>
 </urlset>
