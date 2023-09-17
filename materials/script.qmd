@@ -88,9 +88,9 @@ lib_summary <- function() {
 
 ```{r}
 load_all()
-```
 
-***back to slides***
+lib_summary()
+```
 
 **Commit**
 
