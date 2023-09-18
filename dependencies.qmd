@@ -8,6 +8,10 @@ This is how we might use another package in a script:
 
 ```{r}
 lib_summary <- function(sizes = FALSE) {
+  if (!is.logical(sizes)) {
+    stop("'sizes' must be logical (TRUE/FALSE).")
+  }
+  
   pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])
   pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)

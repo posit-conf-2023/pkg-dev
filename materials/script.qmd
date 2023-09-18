@@ -309,6 +309,10 @@ use_package("fs")
 
 ```{r}
 lib_summary <- function(sizes = FALSE) {
+  if (!is.logical(sizes)) {
+    stop("'sizes' must be logical (TRUE/FALSE).")
+  }
+  
   pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])
   pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
