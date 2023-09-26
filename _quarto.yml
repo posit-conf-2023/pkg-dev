@@ -9,13 +9,22 @@ website:
       - icon: github
         href: https://github.com/posit-conf-2023/pkg-dev
         aria-label: GitHub
+    left:
+      - href: index.qmd
+        text: Home
+      - sidebar:modules
+      - href: materials/slides.pdf
+        text: Slides (PDF)
+        aria-label: "PDF of slides"
   repo-url: https://github.com/posit-conf-2023/pkg-dev
   repo-actions: [edit, issue]
   sidebar:
     search: true
+    id: modules
+    title: "Modules"
+    style: docked
+    background: light
     contents:
-      - href: index.qmd
-        text: Home
       - intro.qmd
       - setup.qmd
       - understanding-pkgs.qmd
@@ -26,8 +35,6 @@ website:
       - ci.qmd
       - website.qmd
       - share.qmd
-      - href: materials/slides.pdf
-        text: Slides (PDF)
       
 bibliography: references.bib
 
