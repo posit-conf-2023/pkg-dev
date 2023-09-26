@@ -84,7 +84,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -100,6 +100,63 @@ div.csl-indent {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
+        <li>
+    <a class="dropdown-item" href="./intro.html" rel="" target="">
+ <span class="dropdown-text">Introduction ✨</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./setup.html" rel="" target="">
+ <span class="dropdown-text">System Setup 🤖</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./understanding-pkgs.html" rel="" target="">
+ <span class="dropdown-text">Packages in a nutshell 🌰</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./create-pkg-and-metadata.html" rel="" target="">
+ <span class="dropdown-text">Package Creation and Metadata 🧰</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./documentation.html" rel="" target="">
+ <span class="dropdown-text">Documentation 📓</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./testing.html" rel="" target="">
+ <span class="dropdown-text">Tests 🧪</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./dependencies.html" rel="" target="">
+ <span class="dropdown-text">Managing dependencies 🐕</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ci.html" rel="" target="">
+ <span class="dropdown-text">Automated checking with GitHub Actions 🦾</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./website.html" rel="" target="">
+ <span class="dropdown-text">Create a package website 🕸</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./share.html" rel="" target="">
+ <span class="dropdown-text">Hosting and sharing 📤</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./materials/slides.pdf" rel="" target="">
+ <span class="menu-text">Slides (PDF)</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/posit-conf-2023/pkg-dev" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
@@ -130,7 +187,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -138,12 +195,6 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link active">
@@ -204,12 +255,6 @@ div.csl-indent {
  <span class="menu-text">Hosting and sharing 📤</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./materials/slides.pdf" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides (PDF)</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -220,7 +265,10 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-the-course-will-look-like" id="toc-what-the-course-will-look-like" class="nav-link active" data-scroll-target="#what-the-course-will-look-like">What the course will look like</a></li>
+  <li><a href="#what-the-course-will-look-like" id="toc-what-the-course-will-look-like" class="nav-link active" data-scroll-target="#what-the-course-will-look-like">What the course will look like</a>
+  <ul class="collapse">
+  <li><a href="#about-this-website" id="toc-about-this-website" class="nav-link" data-scroll-target="#about-this-website">About this website</a></li>
+  </ul></li>
   <li><a href="#course-logistics" id="toc-course-logistics" class="nav-link" data-scroll-target="#course-logistics">Course logistics</a>
   <ul class="collapse">
   <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of Conduct</a></li>
@@ -258,6 +306,10 @@ div.csl-indent {
 <p>We will work together through developing a package, and at various steps along the way we will take detours to examine tools, processes, and package structure.</p>
 <p>The tools we’ll be using (RStudio + devtools, usethis, and friends) are designed to ‘get out of the way’ and enable a workflow that helps you focus on the code you are writing. We’ll be live coding together, and emphasizing these workflows and processes.</p>
 <p>The core ideas in this course are taken from the <a href="https://r-pkgs.org">R Packages</a> book <span class="citation" data-cites="wickham2023r">(<a href="#ref-wickham2023r" role="doc-biblioref">Wickham and Bryan 2023</a>)</span> by Hadley Wickham and Jenny Bryan, now in its second edition. We basically follow the format of the “Whole Game” chapter, stepping through the key steps in making a package, with detours along the way to explore the main concepts in a bit more detail.</p>
+<section id="about-this-website" class="level3">
+<h3 class="anchored" data-anchor-id="about-this-website">About this website</h3>
+<p>This site is meant to be supplemental to the in-class activities. The slides are <a href="materials/slides.pdf">available in pdf form</a>. The modules contain the code that we wrote in the workshop, with very little explanation or annotation. This is intentional - for a self-guided walk-through of package development, I recommend reading the <a href="https://r-pkgs.org">R Packages</a> book.</p>
+</section>
 </section>
 <section id="course-logistics" class="level2">
 <h2 class="anchored" data-anchor-id="course-logistics">Course logistics</h2>
